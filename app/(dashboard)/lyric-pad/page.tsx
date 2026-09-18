@@ -216,8 +216,8 @@ export default function LyricPadPage() {
               <Input placeholder="Söz ara..." value={search} onChange={e => setSearch(e.target.value)} className="pl-9 !text-[11px]" />
             </div>
             <div className="flex items-center gap-1.5">
-              <Button variant="outline" size="xs" className="flex-1 !text-[10px]"><Filter className="w-3 h-3 mr-1" />Filtre</Button>
-              <Button variant="outline" size="xs" className="!text-[10px]"><Sparkles className="w-3 h-3" /></Button>
+              <Button variant="outline" size="sm" className="flex-1 !text-[10px]"><Filter className="w-3 h-3 mr-1" />Filtre</Button>
+              <Button variant="outline" size="sm" className="!text-[10px]"><Sparkles className="w-3 h-3" /></Button>
             </div>
           </div>
 
@@ -259,7 +259,7 @@ export default function LyricPadPage() {
                     </Link>
                   )}
                   <div className="flex items-center gap-2 pt-1">
-                    <Avatar name={v.author} size="xs" />
+                    <Avatar name={v.author} size="sm" />
                     <div className="text-[9px] text-muted-foreground truncate min-w-0 flex-1">{v.author}</div>
                     <div className="flex items-center gap-0.5 text-[9px] text-muted-foreground shrink-0">
                       <Star className="w-2.5 h-2.5 fill-primary text-primary" />
@@ -300,8 +300,8 @@ export default function LyricPadPage() {
                 Otomatik kaydedildi
               </Badge>
               <Badge variant="muted" className="!text-[9px] !px-1.5">{timeAgo(activeV.updatedAt)}</Badge>
-              <Button size="xs" variant="outline"><Eye className="w-2.5 h-2.5 mr-1" />Önizle</Button>
-              <Button size="xs"><Save className="w-2.5 h-2.5 mr-1" />Kaydet</Button>
+              <Button size="sm" variant="outline"><Eye className="w-2.5 h-2.5 mr-1" />Önizle</Button>
+              <Button size="sm"><Save className="w-2.5 h-2.5 mr-1" />Kaydet</Button>
             </div>
           </div>
 
@@ -365,7 +365,7 @@ export default function LyricPadPage() {
             </div>
             <div className="p-2.5 rounded-lg bg-primary/5 border border-primary/15 space-y-1">
               <div className="flex items-center gap-1.5">
-                <Avatar name={activeV.author} size="xs" />
+                <Avatar name={activeV.author} size="sm" />
                 <div className="text-[11px] font-semibold">{activeV.author}</div>
               </div>
               <div className="text-[10px] text-muted-foreground pl-8">
@@ -411,7 +411,7 @@ export default function LyricPadPage() {
                 );
               })}
             </div>
-            <Button variant="outline" size="xs" className="w-full !text-[10px]">
+            <Button variant="outline" size="sm" className="w-full !text-[10px]">
               <Sparkles className="w-3 h-3 mr-1" />
               AI ile Alternatif Sözler Üret
             </Button>
@@ -447,7 +447,7 @@ export default function LyricPadPage() {
                 </div>
               ))}
             </div>
-            <Button variant="outline" size="xs" className="w-full mt-3 !text-[10px]">
+            <Button variant="outline" size="sm" className="w-full mt-3 !text-[10px]">
               <Users className="w-3 h-3 mr-1" />
               Kişi Davet Et
             </Button>

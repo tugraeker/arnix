@@ -15,7 +15,7 @@ import {
   Star,
   Disc3,
   Headphones,
-  GuitarElectric,
+  Guitar,
   Clock3,
   Sparkles,
   Volume2,
@@ -80,7 +80,7 @@ interface ReferenceTrack {
 const MOOD_LABELS: Record<RefMood, { label: string; gradient: string; pill: string; Icon: any }> = {
   "R&B": { label: "R&B / Soul", gradient: "from-neon-purple via-primary to-neon-pink", pill: "bg-neon-purple/15 text-neon-purple border-neon-purple/25", Icon: Headphones },
   "Pop": { label: "Pop / Top 40", gradient: "from-neon-pink via-destructive to-neon-orange", pill: "bg-neon-pink/15 text-neon-pink border-neon-pink/25", Icon: Sparkles },
-  "Trap": { label: "Trap / Hip-Hop", gradient: "from-neon-orange via-primary to-neon-cyan", pill: "bg-neon-orange/15 text-neon-orange border-neon-orange/25", Icon: GuitarElectric },
+  "Trap": { label: "Trap / Hip-Hop", gradient: "from-neon-orange via-primary to-neon-cyan", pill: "bg-neon-orange/15 text-neon-orange border-neon-orange/25", Icon: Guitar },
   "House": { label: "House / Dance", gradient: "from-neon-cyan via-accent to-neon-green", pill: "bg-neon-cyan/15 text-neon-cyan border-neon-cyan/25", Icon: Waves },
 };
 
@@ -141,7 +141,7 @@ const TRACKS: ReferenceTrack[] = [
     waveforms: wf(16), imageAccent: "from-neon-orange via-primary to-neon-cyan",
     rating: 4, addedBy: "Kaan Arslan", addedDate: "2026-05-10",
     platforms: [{ name: "Spotify" }, { name: "YouTube" }],
-    Icon: GuitarElectric,
+    Icon: Guitar,
   },
   {
     id: "r4", title: "Rush", artist: "Ayra Starr", album: "19 & Dangerous", year: 2022,
@@ -186,7 +186,7 @@ const TRACKS: ReferenceTrack[] = [
     waveforms: wf(412), imageAccent: "from-neon-orange via-primary to-destructive",
     rating: 4, addedBy: "Kaan Arslan", addedDate: "2026-08-05",
     platforms: [{ name: "Spotify" }, { name: "Apple" }],
-    Icon: GuitarElectric,
+    Icon: Guitar,
   },
   {
     id: "r8", title: "Baddadan", artist: "Chase & Status, Bou", year: 2023,
@@ -208,7 +208,7 @@ const TRACKS: ReferenceTrack[] = [
     waveforms: wf(420), imageAccent: "from-primary via-neon-pink to-neon-orange",
     rating: 3, addedBy: "Kaan Arslan", addedDate: "2026-08-15",
     platforms: [{ name: "Spotify" }],
-    Icon: GuitarElectric,
+    Icon: Guitar,
   },
   {
     id: "r10", title: "Watermelon Sugar", artist: "Harry Styles", album: "Fine Line", year: 2019,

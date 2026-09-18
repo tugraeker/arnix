@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Eye, EyeOff, Loader2, Music, LogIn, AtSign, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,7 +19,7 @@ import { createClient } from "@/lib/supabase/client";
 import { APP_ROLES, ROLE_LABELS, ROLE_COLORS, type AppRole } from "@/lib/constants";
 import { setStoredRole } from "@/components/shared/role-gate";
 
-export default function LoginPage() {
+function LoginPageInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirect = searchParams.get("redirect") || "/dashboard";
@@ -310,5 +311,13 @@ export default function LoginPage() {
         </div>
       </CardContent>
     </Card>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="flex items-center justify-center min-h-screen text-muted-foreground">Yükleniyor...</div>}>
+      <LoginPageInner />
+    </Suspense>
   );
 }

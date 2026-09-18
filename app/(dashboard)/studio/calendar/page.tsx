@@ -54,7 +54,7 @@ import {
   BOOKING_TYPE_LABELS,
   type BookingType,
 } from "@/lib/constants";
-import { cn, formatDate, formatDuration, timeAgo } from "@/lib/utils";
+import { cn, formatDate, formatDuration, formatPrice, timeAgo } from "@/lib/utils";
 
 type ResourceKey = "studio_a" | "studio_b" | "control_room" | "mix_room" | "booth";
 
@@ -79,6 +79,7 @@ const TYPE_COLORS: Record<BookingType, string> = {
   recording: "from-primary to-neon-purple",
   mixing: "from-neon-cyan to-secondary",
   mastering: "from-neon-orange to-neon-pink",
+  songwriting: "from-neon-green to-accent",
   production: "from-neon-purple to-primary",
   rehearsal: "from-muted to-muted-foreground",
   meeting: "from-neon-green to-accent",
@@ -560,9 +561,9 @@ export default function StudioCalendarPage() {
                               </span>
                             </div>
                             <div className="mt-auto">
-                              <AvatarGroup size="xs" className="justify-start">
+                              <AvatarGroup size="sm" className="justify-start">
                                 {b.bookedBy.slice(0, 3).map((by, i) => (
-                                  <Avatar key={i} name={by.name} size="xs" />
+                                  <Avatar key={i} name={by.name} size="sm" />
                                 ))}
                               </AvatarGroup>
                             </div>
@@ -660,9 +661,9 @@ export default function StudioCalendarPage() {
                                   <div className="flex items-center gap-3 flex-wrap">
                                     <div className="flex items-center gap-1.5">
                                       <span className="text-[10px] text-muted-foreground">Katılımcılar:</span>
-                                      <AvatarGroup size="xs">
+                                      <AvatarGroup size="sm">
                                         {b.bookedBy.map((by, i) => (
-                                          <Avatar key={i} name={by.name} size="xs" />
+                                          <Avatar key={i} name={by.name} size="sm" />
                                         ))}
                                       </AvatarGroup>
                                     </div>
@@ -670,7 +671,7 @@ export default function StudioCalendarPage() {
                                       <div className="flex items-center gap-1.5">
                                         <span className="text-[10px] text-muted-foreground">Mühendis:</span>
                                         <div className="flex items-center gap-1.5">
-                                          <Avatar name={b.engineer.name} size="xs" />
+                                          <Avatar name={b.engineer.name} size="sm" />
                                           <span className="text-[10px]">{b.engineer.name}</span>
                                         </div>
                                       </div>
@@ -759,9 +760,9 @@ export default function StudioCalendarPage() {
                         <span>{b.durationH} saat</span>
                       </div>
                       <div className="mt-2 pt-2 border-t border-white/10 flex items-center justify-between">
-                        <AvatarGroup size="xs">
+                        <AvatarGroup size="sm">
                           {b.bookedBy.map((by, i) => (
-                            <Avatar key={i} name={by.name} size="xs" />
+                            <Avatar key={i} name={by.name} size="sm" />
                           ))}
                         </AvatarGroup>
                         <Badge variant="muted" className={cn("!text-[8px] !px-1.5 !bg-black/25 !text-white !border-white/20", STATUS_STYLE[b.status])}>
@@ -824,7 +825,6 @@ export default function StudioCalendarPage() {
                         return (
                           <div
                             key={`${h}-${r.key}`}
-                            rowSpan={booking ? booking.durationH : 1}
                             className={cn(
                               "border-r border-b border-white/5 last:border-r-0 relative",
                               booking

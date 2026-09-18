@@ -42,8 +42,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
-  SESSION_NOTES,
-  type SessionNote,
   type AppRole,
 } from "@/lib/constants";
 import { cn, formatDate, timeAgo } from "@/lib/utils";
@@ -422,7 +420,7 @@ export default function SessionNotesPage() {
                       </div>
                     )}
                     <div className="flex items-center justify-between pt-1">
-                      <AvatarGroup size="xs">
+                      <AvatarGroup size="sm">
                         {s.attendees.slice(0, 4).map(a => <Avatar key={a} name={a} />)}
                       </AvatarGroup>
                       <div className="text-[10px] text-muted-foreground flex items-center gap-1.5 flex-wrap">
@@ -465,7 +463,7 @@ export default function SessionNotesPage() {
                 <div className="flex items-center gap-1.5">
                   <button className="p-1.5 rounded-lg bg-black/40 backdrop-blur-sm hover:bg-black/60 text-white transition-colors"><Pin className="w-4 h-4" /></button>
                   <button className="p-1.5 rounded-lg bg-black/40 backdrop-blur-sm hover:bg-black/60 text-white transition-colors"><Star className="w-4 h-4" /></button>
-                  <Button size="xs" className="!text-[10px] bg-white/90 text-black hover:bg-white"><Sparkles className="w-3 h-3 mr-1" />AI Özet</Button>
+                  <Button size="sm" className="!text-[10px] bg-white/90 text-black hover:bg-white"><Sparkles className="w-3 h-3 mr-1" />AI Özet</Button>
                 </div>
               </div>
             </div>
@@ -478,7 +476,7 @@ export default function SessionNotesPage() {
                     <Mic2 className="w-3 h-3" />Mühendis
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <Avatar name={active.engineer} size="xs" />
+                    <Avatar name={active.engineer} size="sm" />
                     <span className="text-xs font-semibold">{active.engineer}</span>
                   </div>
                 </div>
@@ -521,7 +519,7 @@ export default function SessionNotesPage() {
                 <div className="flex flex-wrap gap-2">
                   {active.attendees.map(a => (
                     <div key={a} className="flex items-center gap-1.5 p-1 pr-2 rounded-full bg-white/[0.03] border border-white/5 hover:bg-white/[0.05] transition-colors">
-                      <Avatar name={a} size="xs" />
+                      <Avatar name={a} size="sm" />
                       <span className="text-xs font-medium">{a}</span>
                     </div>
                   ))}
@@ -588,7 +586,7 @@ export default function SessionNotesPage() {
                   <div className="text-[9px] uppercase tracking-wider text-muted-foreground font-semibold flex items-center gap-1">
                     <Sparkles className="w-3 h-3" /> Yapılacaklar ({active.todo.length})
                   </div>
-                  <Button size="xs" variant="outline" className="!text-[9px]">Yeni</Button>
+                  <Button size="sm" variant="outline" className="!text-[9px]">Yeni</Button>
                 </div>
                 <div className="space-y-1.5">
                   {active.todo.map((t, i) => (
@@ -620,8 +618,8 @@ export default function SessionNotesPage() {
                   Son güncelleme: {timeAgo(active.updatedAt)}
                 </div>
                 <div className="flex items-center gap-1">
-                  <Button size="xs" variant="outline">Dışa Aktar</Button>
-                  <Button size="xs"><Sparkles className="w-3 h-3 mr-1" />Kaydet</Button>
+                  <Button size="sm" variant="outline">Dışa Aktar</Button>
+                  <Button size="sm"><Sparkles className="w-3 h-3 mr-1" />Kaydet</Button>
                 </div>
               </div>
             </div>
@@ -664,7 +662,7 @@ export default function SessionNotesPage() {
                           <Calendar className="w-2.5 h-2.5" />
                           {formatDate(s.sessionDate)}
                         </div>
-                        <AvatarGroup size="xxs">
+                        <AvatarGroup size="sm">
                           {s.attendees.slice(0, 3).map(a => <Avatar key={a} name={a} />)}
                         </AvatarGroup>
                       </div>

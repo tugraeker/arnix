@@ -56,7 +56,6 @@ import {
   FINANCE_CATEGORIES_INCOME,
   FINANCE_CATEGORIES_EXPENSE,
   type FinanceType,
-  type Tx,
   BEAT_TYPE_LABELS,
   type BeatType,
   ROLE_COLORS,
@@ -262,10 +261,8 @@ const TRANSACTIONS: Tx[] = [
   },
 ];
 
-const TOTAL_INCOME = (transactions?.filter(t => t.type === "income").reduce((a, b) => a + Math.abs(b.amount) * (b.currency === "USD" ? 35 : b.currency === "EUR" ? 40 : 1), 0) ?? TRANSACTIONS.filter(t => t.type === "income").reduce((a, b) => a + Math.abs(b.amount) * (b.currency === "USD" ? 35 : b.currency === "EUR" ? 40 : 1), 0));
-const TOTAL_EXPENSE = (transactions?.filter(t => t.type === "expense").reduce((a, b) => a + Math.abs(b.amount) * (b.currency === "USD" ? 35 : b.currency === "EUR" ? 40 : 1), 0) ?? TRANSACTIONS.filter(t => t.type === "expense").reduce((a, b) => a + Math.abs(b.amount) * (b.currency === "USD" ? 35 : b.currency === "EUR" ? 40 : 1), 0));
-const TOTAL_NET = TOTAL_INCOME - TOTAL_EXPENSE;
-const PENDING = (transactions?.filter(t => t.status === "pending" || t.status === "overdue")?.length ?? TRANSACTIONS.filter(t => t.status === "pending" || t.status === "overdue").length);
+const _calcIncome = (txs: Tx[]) => txs.filter(t => t.type === "income").reduce((a, b) => a + Math.abs(b.amount) * (b.currency === "USD" ? 35 : b.currency === "EUR" ? 40 : 1), 0);
+const _calcExpense = (txs: Tx[]) => txs.filter(t => t.type === "expense").reduce((a, b) => a + Math.abs(b.amount) * (b.currency === "USD" ? 35 : b.currency === "EUR" ? 40 : 1), 0);
 
 const STATUS_STYLE: Record<TxStatus, string> = {
   paid: "bg-neon-green/20 text-neon-green border-neon-green/30",
@@ -298,6 +295,11 @@ export default function FinancesPage() {
   const [member, setMember] = React.useState("all");
   const [cat, setCat] = React.useState<string>("all");
   const [search, setSearch] = React.useState("");
+
+  const TOTAL_INCOME = _calcIncome(transactions ?? TRANSACTIONS);
+  const TOTAL_EXPENSE = _calcExpense(transactions ?? TRANSACTIONS);
+  const TOTAL_NET = TOTAL_INCOME - TOTAL_EXPENSE;
+  const PENDING = (transactions ?? TRANSACTIONS).filter(t => t.status === "pending" || t.status === "overdue").length;
 
   const filtered = transactions?.filter(t => {
     if (range !== "all" && t.date) {
@@ -462,7 +464,7 @@ export default function FinancesPage() {
             </div>
             <div className="text-[11px] text-muted-foreground">
               {formatPrice(
-                (transactions?.filter(t => t.status === "pending" || t.status === "overdue")?.reduce((a, b) => a + Math.abs(b.amount) * (b.currency === "USD" ? 35 : b.currency === "EUR" ? 40 : 1), 0) ?? TRANSACTIONS.filter(t => t.status === "pending" || t.status === "overdue").reduce((a, b) => a + Math.abs(b.amount) * (b.currency === "USD" ? 35 : b.currency === "EUR" ? 40 : 1), 0), "TRY"
+                (transactions?.filter(t => t.status === "pending" || t.status === "overdue")?.reduce((a, b) => a + Math.abs(b.amount) * (b.currency === "USD" ? 35 : b.currency === "EUR" ? 40 : 1), 0) ?? TRANSACTIONS.filter(t => t.status === "pending" || t.status === "overdue").reduce((a, b) => a + Math.abs(b.amount) * (b.currency === "USD" ? 35 : b.currency === "EUR" ? 40 : 1), 0)), "TRY"
               )} · {(transactions?.filter(t => t.status === "overdue")?.length ?? TRANSACTIONS.filter(t => t.status === "overdue").length)} gecikmiş
             </div>
           </CardContent>
@@ -737,7 +739,7 @@ export default function FinancesPage() {
                                 )}
                                 {t.related && (
                                   <div className="inline-flex items-center gap-1">
-                                    <Avatar name={t.related.name} size="xs" />
+                                    <Avatar name={t.related.name} size="sm" />
                                     <span className="text-[10px] text-muted-foreground">{t.related.name}</span>
                                   </div>
                                 )}
@@ -782,7 +784,7 @@ export default function FinancesPage() {
                             t.type === "income" ? "text-neon-green" : "text-destructive"
                           )}>
                             {t.type === "income" ? "+" : "−"} {t.currency === "USD" ? "$" : t.currency === "EUR" ? "€" : ""}
-                            {formatPrice(Math.abs(t.amount), t.currency, { showSymbol: false })}
+                            {formatPrice(Math.abs(t.amount), t.currency)}
                           </div>
                           <button className="p-1 rounded-md text-muted-foreground hover:text-foreground hover:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity mt-1 ml-auto">
                             <MoreHorizontal className="w-3.5 h-3.5" />
@@ -952,7 +954,7 @@ export default function FinancesPage() {
             </div>
             <div className="grid grid-cols-2 gap-2">
               {[
-                { icon: UploadCloud, label: "Fatura Kes", act: "primary" as const },
+                { icon: UploadCloud, label: "Fatura Kes", act: "default" as const },
                 { icon: Download, label: "Ödeme Kaydet", act: "outline" as const },
                 { icon: Repeat2, label: "Abonelik Ekle", act: "outline" as const },
                 { icon: FileText, label: "Fiş Yükle", act: "outline" as const },

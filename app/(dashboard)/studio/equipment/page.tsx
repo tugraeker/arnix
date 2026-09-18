@@ -6,7 +6,7 @@ import {
   Speaker,
   Headphones,
   Settings2,
-  GuitarElectric,
+  Guitar,
   Piano,
   Drum,
   KeyRound,
@@ -167,7 +167,7 @@ const EQUIPMENTS: Equipment[] = [
     usedHours: 480,
     features: ["Sitka Ladin", "Gül Ağacı", "Expression Sistem 2"],
     rating: 5, imageAccent: "from-neon-orange via-neon-green to-accent",
-    Icon: GuitarElectric,
+    Icon: Guitar,
   },
   {
     id: "e9", name: "Rhodes MK8", brand: "Rhodes", model: "MK8 73",

@@ -634,7 +634,7 @@ export default function ReleaseCalendarPage() {
                           >
                             <div className="text-white text-[8px] font-bold truncate flex items-center gap-1">
                               <Clock3 className="w-2 h-2" />
-                              {formatDate(r.date, "short")}
+                              {formatDate(r.date)}
                             </div>
                             <div className="text-white/90 text-[7.5px] flex items-center gap-0.5 shrink-0">
                               <Badge variant="muted" className="!bg-black/35 !border-white/10 !text-white !text-[7px] !px-1 !py-0 leading-[10px]">
@@ -697,7 +697,7 @@ export default function ReleaseCalendarPage() {
                             {future ? `${diff}` : `${Math.abs(diff)}`}
                           </div>
                           <div className="text-[9px] text-muted-foreground">{future ? "gün kaldı" : "gün önce"}</div>
-                          <div className="text-[9px] text-muted-foreground font-mono mt-0.5">{formatDate(r.date, "short")}</div>
+                          <div className="text-[9px] text-muted-foreground font-mono mt-0.5">{formatDate(r.date)}</div>
                         </div>
                       </div>
                     );
@@ -772,7 +772,7 @@ export default function ReleaseCalendarPage() {
                                   ))}
                                 </div>
                                 <div className="text-[9px] font-mono text-muted-foreground flex items-center justify-between">
-                                  <span>{formatDate(r.date, "short")}</span>
+                                  <span>{formatDate(r.date)}</span>
                                   <span>{r.playlists ? `${r.playlists} Playlist` : "Hazırlanıyor"}</span>
                                 </div>
                               </div>

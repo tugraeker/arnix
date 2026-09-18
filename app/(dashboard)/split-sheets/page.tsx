@@ -44,13 +44,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import {
-  SPLIT_SHEETS,
-  type SplitSheet,
-  type Member,
-  type Contributor,
-  type RightType,
-} from "@/lib/constants";
+import { type AppRole, type BeatType, BEAT_TYPE_LABELS, ROLE_COLORS, ROLE_LABELS } from "@/lib/constants";
 import { cn, formatDate, formatPrice } from "@/lib/utils";
 import { useSupabaseQuery } from "@/lib/hooks/use-supabase-query";
 
@@ -340,7 +334,7 @@ export default function SplitSheetsPage() {
                                 <span className="text-[9px] text-muted-foreground font-mono">{m.signedAt}</span>
                               </div>
                             ) : (
-                              <Button variant="outline" size="xs" className="!text-[9px] !h-6 !px-2">
+                              <Button variant="outline" size="sm" className="!text-[9px] !h-6 !px-2">
                                 <Mail className="w-2.5 h-2.5 mr-1" />
                                 Hatırlat
                               </Button>
@@ -536,7 +530,7 @@ export default function SplitSheetsPage() {
                         <div key={c.memberId}>
                           <div className="flex items-center justify-between text-[11px] mb-1">
                             <div className="flex items-center gap-1.5">
-                              <Avatar name={m.name} size="xs" />
+                              <Avatar name={m.name} size="sm" />
                               <span className="font-medium">{m.name}</span>
                               <span className="text-muted-foreground text-[10px]">
                                 ({ROLE_LABELS[m.role]})

@@ -121,6 +121,10 @@ export const BOOKING_TYPES = {
   MASTERING: "mastering",
   SONGWRITING: "songwriting",
   REHEARSAL: "rehearsal",
+  PRODUCTION: "production",
+  MEETING: "meeting",
+  LIVE_STREAM: "live_stream",
+  OTHER: "other",
 } as const;
 
 export type BookingType = (typeof BOOKING_TYPES)[keyof typeof BOOKING_TYPES];
@@ -131,6 +135,10 @@ export const BOOKING_TYPE_LABELS: Record<BookingType, string> = {
   mastering: "Mastering",
   songwriting: "Şarkı Yazımı",
   rehearsal: "Prova",
+  production: "Prodüksiyon",
+  meeting: "Toplantı",
+  live_stream: "Canlı Yayın",
+  other: "Diğer",
 };
 
 export const BOOKING_TYPE_COLORS: Record<BookingType, string> = {
@@ -139,6 +147,10 @@ export const BOOKING_TYPE_COLORS: Record<BookingType, string> = {
   mastering: "#06b6d4",
   songwriting: "#10b981",
   rehearsal: "#f97316",
+  production: "#8b5cf6",
+  meeting: "#3b82f6",
+  live_stream: "#ef4444",
+  other: "#6b7280",
 };
 
 export const EQUIPMENT_CATEGORIES = {

@@ -155,7 +155,7 @@ const SAMPLES: SampleItem[] = [
     description: "Double-tracked clean electric guitar. Hall reverb + stereo widener.",
   },
   {
-    id: "s4", title: "Kozmik Atmos Pad F#min", category: "fx",
+    id: "s4", title: "Kozmik Atmos Pad F#min", category: "sfx",
     bpm: 128, key: "F#min", durationSec: 6.5, sizeBytes: 4_200_000, fileType: "aiff",
     tags: ["pad", "atmosphere", "synth", "rising"], waveformColors: ["#ec4899", "#a855f7"],
     playCount: 448, favorite: true, createdAt: "2026-08-28",
@@ -205,7 +205,7 @@ const SAMPLES: SampleItem[] = [
     collectionStatus: "cleared",
   },
   {
-    id: "s9", title: "Reverse Crash — Cinematic FX", category: "fx",
+    id: "s9", title: "Reverse Crash — Cinematic FX", category: "sfx",
     durationSec: 3.1, sizeBytes: 2_100_000, fileType: "flac",
     tags: ["crash", "reverse", "cinematic", "transition"],
     waveformColors: ["#06b6d4", "#ec4899"],
@@ -435,7 +435,7 @@ export default function SamplesPage() {
               WAV, MP3, AIFF, FLAC — tek seferde 100MB'a kadar paket yükleyin
             </div>
             <FileUpload
-              mode="compact"
+              compact
               accept="audio"
               multiple
             />
@@ -646,7 +646,7 @@ export default function SamplesPage() {
                   {/* Quick actions */}
                   <div className="grid grid-cols-4 gap-2">
                     {[
-                      { icon: Play, label: "Oynat", act: "primary" as const },
+                      { icon: Play, label: "Oynat", act: "default" as const },
                       { icon: Heart, label: "Favori", act: "outline" as const },
                       { icon: Download, label: "İndir", act: "outline" as const },
                       { icon: Copy, label: "Kopyala", act: "outline" as const },
