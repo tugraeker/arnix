@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+>>>>>>> e4566976bcf4966200bb50ab1ecefa4f5003f8e5
 # dependencies
 /node_modules
 /.pnp
@@ -21,10 +26,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
 .pnpm-debug.log*
+=======
+>>>>>>> e4566976bcf4966200bb50ab1ecefa4f5003f8e5
 
 # local env files
-.env*.local
 .env
 
 # vercel
@@ -33,6 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+<<<<<<< HEAD
 
 # supabase
 .supabase
@@ -40,3 +48,5 @@ next-env.d.ts
 # IDE
 .vscode
 .idea
+=======
+>>>>>>> e4566976bcf4966200bb50ab1ecefa4f5003f8e5
