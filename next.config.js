@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // ⭐ BU SATIR ZORUNLU!
+  output: 'export',
+  basePath: '/arnix',
   images: {
     unoptimized: true,
   },
